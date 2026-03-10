@@ -117,7 +117,8 @@ export default function App() {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("http://localhost:8081/api/resume/upload", {
+      const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:8081";
+const response = await fetch(`${backendUrl}/api/resume/upload`, {
         method: "POST",
         body: formData,
       });
